@@ -2,37 +2,37 @@ import threading
 from collections import deque
 import time
 
-class BoundedBuffer:
-    def __init__(self, capacity: int):
-        self.capacity = capacity
-        self.queue = deque()
-        self.space = threading.Semaphore(capacity)
-        self.items = threading.Semaphore(0)
+class BufferLimitado:
+    def __init__(self, capacidade: int):
+        self.capacidade = capacidade
+        self.fila = deque()
+        self.espaco = threading.Semaphore(capacidade)
+        self.itens = threading.Semaphore(0)
         self.mutex = threading.Lock()
-        self.total_produced = 0
-        self.total_consumed = 0
-        self.wait_prod = 0.0
-        self.wait_cons = 0.0
+        self.total_produzido = 0
+        self.total_consumido = 0
+        self.tempo_espera_prod = 0.0
+        self.tempo_espera_cons = 0.0
 
-    def produce(self, item):
+    def produzir(self, item):
         t0 = time.time()
-        self.space.acquire()
-        self.wait_prod += time.time() - t0
+        self.espaco.acquire()
+        self.tempo_espera_prod += time.time() - t0
         with self.mutex:
-            self.queue.append(item)
-            self.total_produced += 1
-        self.items.release()
+            self.fila.append(item)
+            self.total_produzido += 1
+        self.itens.release()
 
-    def consume(self):
+    def consumir(self):
         t0 = time.time()
-        self.items.acquire()
-        self.wait_cons += time.time() - t0
+        self.itens.acquire()
+        self.tempo_espera_cons += time.time() - t0
         with self.mutex:
-            item = self.queue.popleft()
-            self.total_consumed += 1
-        self.space.release()
+            item = self.fila.popleft()
+            self.total_consumido += 1
+        self.espaco.release()
         return item
 
-    def size(self):
+    def tamanho(self):
         with self.mutex:
-            return len(self.queue)
+            return len(self.fila)
