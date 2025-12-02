@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import matplotlib.pyplot as plt
 import os
 import json
