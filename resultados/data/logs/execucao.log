@@ -1,0 +1,4 @@
+# Log de execução
+2025-12-02 01:13:55,235 INFO src.simulacao: Iniciando simulacao: capacidade=100, produtores=10, consumidores=12, timesteps=20000
+2025-12-02 01:13:58,867 INFO src.simulacao: Todas as threads finalizaram. Total produzido=200000, total consumido=200000
+2025-12-02 01:13:58,867 INFO src.simulacao: Relatorio gerado: {'Capacidade do buffer': 100, 'Produtores': 10, 'Consumidores': 12, 'Timesteps por produtor': 20000, 'Total produzido': 200000, 'Total consumido': 200000, 'Itens restantes no buffer': 0, 'Tempo médio espera produtores': 0.00011904153347015381, 'Tempo médio espera consumidores': 0.00012205833554267884}

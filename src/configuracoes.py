@@ -1,0 +1,6 @@
+# Configurações padrão da simulação
+
+CAPACIDADE = 100
+PRODUTORES = 10
+CONSUMIDORES = 12
+TIMESTEPS = 20000
