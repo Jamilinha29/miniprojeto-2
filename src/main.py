@@ -72,3 +72,6 @@ if __name__ == "__main__":
             shutil.copy(grafico_base, "resultados/data/graficos/eficiencia.png")
         except Exception:
             pass
+a/graficos/eficiencia.png")
+        except Exception:
+            pass
