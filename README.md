@@ -1,4 +1,4 @@
-# MiniProjeto 2 — Sistema Distribuído
+# Sistema de Controle para Linha de Produção Industrial — Sistema Distribuído
 
 Simulação de produtores e consumidores com buffer limitado. O projeto implementa uma pequena simulação concorrente, gera relatórios em CSV e gráficos, e possui testes automatizados.
 
